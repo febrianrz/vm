@@ -1,0 +1,43 @@
+@media all and (max-width: 1200px) {/* screen size until 1200px */
+	body a {
+		font-size: 1.1em; /* 1x default size */
+	}
+}
+@media all and (max-width: 1000px) {/* screen size until 1000px */
+	body a {
+		font-size: 0.7em; /* 0.7x default size */
+	}
+	.nav-stacked, .nav-pills, .nav, .nav-stacked li, .nav-pills li, .nav li {
+		margin: 0;
+		padding: 0;
+	}
+}
+@media all and (max-width: 500px) {/* screen size until 500px */
+	body a {
+		font-size: 0.7em; /* 0.5x default size */
+	}
+	.nav-stacked, .nav-pills, .nav, .nav-stacked li, .nav-pills li, .nav li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.nav > li > a{
+	color: #FFFFFF;
+}
+
+body {
+	padding-top: 50px;
+	padding-left: 0;
+}
+
+.clear{
+	clear: both;
+}
+
+#sidebar {
+	width: 20%;
+	background-color: #882020;
+	float: left;
+	border-radius: 10px;
+}

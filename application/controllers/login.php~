@@ -1,0 +1,47 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Login extends CI_Controller {
+	
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('M_login');
+	}
+	
+	public function index(){
+		if($this->uri->total_segments() == 0){
+			redirect(base_url('login'),'refresh');
+			//echo base_url('login');
+		}
+		//echo $this->uri->total_segments();
+		if($this->session->userdata("login") == FALSE){
+			$this->load->view('v_login');
+		} else {
+			if($this->session->userdata('level') == 1){
+				redirect(base_url('root/index'));
+			} else {
+				redirect(base_url('administrator/home'));
+			}
+		}
+	}
+	
+	public function cek_login(){
+		if($this->M_login->login()){
+			if($this->session->userdata('level') == 1){
+				echo 'root/index';
+			} else {
+				echo 'administrator/home';
+			}
+		} else {
+			echo 'false';
+		}
+	}
+	
+	// untuk logout, hapus semua session
+	public function logout(){
+		$this->M_login->setStatus($this->session->userdata('user'), 0);
+		$this->session->sess_destroy();
+		redirect(base_url('login'));
+	}
+}
+
+/* Akhir file login.php */
